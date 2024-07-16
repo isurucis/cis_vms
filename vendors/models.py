@@ -31,6 +31,7 @@ class Address(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
+    
     def __str__(self):
         return self.name
 
@@ -41,6 +42,7 @@ class VendorCategory(models.Model):
 class ContactPerson(models.Model):
     vendor = models.ForeignKey(Vendor, related_name='contact_persons', on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
+    
     def __str__(self):
         return self.name
 
@@ -54,6 +56,9 @@ class Email(models.Model):
 
 class Agent(models.Model):
     name = models.CharField(max_length=255)
+
+    def __str__(self):
+            return self.name
 
 class ActivationProcess(models.Model):
     STATUS_CHOICES = [
