@@ -2,6 +2,8 @@ from django.db import models
 
 class Country(models.Model):
     name = models.CharField(max_length=100)
+    def __str__(self):
+        return self.name
 
 class Vendor(models.Model):
     STATUS_CHOICES = [
@@ -16,6 +18,9 @@ class Vendor(models.Model):
     country = models.ForeignKey(Country, on_delete=models.CASCADE)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
 
+    def __str__(self):
+        return self.name
+
 class Address(models.Model):
     vendor = models.ForeignKey(Vendor, related_name='addresses', on_delete=models.CASCADE)
     address_line = models.CharField(max_length=255)
@@ -25,6 +30,8 @@ class Address(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
+    def __str__(self):
+        return self.name
 
 class VendorCategory(models.Model):
     vendor = models.ForeignKey(Vendor, on_delete=models.CASCADE)
@@ -33,6 +40,8 @@ class VendorCategory(models.Model):
 class ContactPerson(models.Model):
     vendor = models.ForeignKey(Vendor, related_name='contact_persons', on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
+    def __str__(self):
+        return self.name
 
 class ContactNumber(models.Model):
     contact_person = models.ForeignKey(ContactPerson, related_name='contact_numbers', on_delete=models.CASCADE)
