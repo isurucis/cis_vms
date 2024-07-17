@@ -12,6 +12,14 @@ class AddressInline(admin.TabularInline):
 class ContactPersonInline(admin.TabularInline):
     model = ContactPerson
     extra = 1
+
+class TaskInline(admin.TabularInline):
+    model = Task
+    extra = 1
+
+class NoteInline(admin.TabularInline):
+    model = Note
+    extra = 1
     
 @admin.register(Country)
 class CountryAdmin(admin.ModelAdmin):
@@ -23,7 +31,7 @@ class VendorAdmin(admin.ModelAdmin):
     list_filter = ('status', 'country')
     search_fields = ('name', 'code')
                      
-    inlines = [ContactPersonInline, AddressInline]  
+    inlines = [ContactPersonInline, AddressInline, NoteInline, TaskInline]  
 
 
 @admin.register(Address)
