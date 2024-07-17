@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import (
     Country, Vendor, Address, Category, VendorCategory,
-    ContactPerson, ContactNumber, Email, Agent,
+    ContactPerson, Agent,
     ActivationProcess, Task, Note
 )
 
