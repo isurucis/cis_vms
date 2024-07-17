@@ -48,65 +48,24 @@
     <h1 style="text-align: center;">Activation Process Status</h1>
 
     <div class="kanban-container">
-        <div class="kanban-column">
-            <div class="column-header">Email Sent</div>
-            {% for vendor in status_groups.email %}
-                <div class="vendor-card">
-                    <div class="vendor-name">{{ vendor.name }}</div>
-                    <p>{{ vendor.activation_process }}</p>
-                </div>
-            {% endfor %}
-        </div>
+        
 
-        <div class="kanban-column">
-            <div class="column-header">Identify Contact Person</div>
-            {% for vendor in status_groups.identify_contact_person %}
-                <div class="vendor-card">
-                    <div class="vendor-name">{{ vendor.name }}</div>
-                    <p>{{ vendor.activation_process }}</p>
-                </div>
-            {% endfor %}
-        </div>
 
-        <div class="kanban-column">
-            <div class="column-header">Items Analysis</div>
-            {% for vendor in status_groups.items_analysis %}
-                <div class="vendor-card">
-                    <div class="vendor-name">{{ vendor.name }}</div>
-                    <p>{{ vendor.activation_process }}</p>
-                </div>
-            {% endfor %}
-        </div>
 
+        {% for status, vendors in status_groups.items %}
         <div class="kanban-column">
-            <div class="column-header">Gain Stock List</div>
-            {% for vendor in status_groups.gain_stock_list %}
-                <div class="vendor-card">
-                    <div class="vendor-name">{{ vendor.name }}</div>
-                    <p>{{ vendor.activation_process }}</p>
-                </div>
-            {% endfor %}
-        </div>
+            <div class="column-header">{{ status }}</div>
+        
+            {% for vendor in vendors %}
 
-        <div class="kanban-column">
-            <div class="column-header">Activated</div>
-            {% for vendor in status_groups.activated %}
                 <div class="vendor-card">
                     <div class="vendor-name">{{ vendor.name }}</div>
-                    <p>{{ vendor.activation_process }}</p>
                 </div>
             {% endfor %}
+            
         </div>
-
-        <div class="kanban-column">
-            <div class="column-header">Lost</div>
-            {% for vendor in status_groups.lost %}
-                <div class="vendor-card">
-                    <div class="vendor-name">{{ vendor.name }}</div>
-                    <p>{{ vendor.activation_process }}</p>
-                </div>
-            {% endfor %}
-        </div>
+        {% endfor %}
+        
     </div>
 
 </body>
