@@ -36,11 +36,22 @@ class ContactPersonAdmin(admin.ModelAdmin):
     list_display = ('vendor', 'name')
     inlines = [ContactNumberInline, EmailInline]
 
+
+class AddressInline(admin.TabularInline):
+    model = Address
+    extra = 1
+
+class ContactPersonInline(admin.TabularInline):
+    model = ContactPerson
+    extra = 1
+
 @admin.register(Vendor)
 class VendorAdmin(admin.ModelAdmin):
     list_display = ('name', 'code', 'website', 'country', 'status')
     list_filter = ('status', 'country')
-    search_fields = ('name', 'code')
+    search_fields = ('name', 'code
+                     
+    inlines = [ContactPersonInline, AddressInline]
 
     
     
