@@ -21,7 +21,7 @@ class CountryAdmin(admin.ModelAdmin):
 class VendorAdmin(admin.ModelAdmin):
     list_display = ('name', 'code', 'website', 'country', 'status')
     list_filter = ('status', 'country')
-    search_fields = ('name', 'code
+    search_fields = ('name', 'code')
                      
     inlines = [ContactPersonInline, AddressInline]  
 
