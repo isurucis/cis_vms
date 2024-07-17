@@ -42,7 +42,7 @@ class VendorAdmin(admin.ModelAdmin):
     list_filter = ('status', 'country')
     search_fields = ('name', 'code')
 
-    inlines = [ContactPerson, Address]
+    
     
 @admin.register(Agent)
 class AgentAdmin(admin.ModelAdmin):
