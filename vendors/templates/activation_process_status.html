@@ -59,7 +59,8 @@
             {% for vendor in vendors %}
 
                 <div class="vendor-card">
-                    <div class="vendor-name">{{ vendor.name }}</div>
+                    <div class="vendor-name"><a href="{% url 'admin:index' %}" >{{ vendor.name }}</a></div>
+
                 </div>
             {% endfor %}
             
