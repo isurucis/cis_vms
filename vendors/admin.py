@@ -9,28 +9,9 @@ class AddressInline(admin.TabularInline):
     model = Address
     extra = 1
 
-class ContactNumberInline(admin.TabularInline):
-    model = ContactNumber
-    extra = 1
-
-class EmailInline(admin.TabularInline):
-    model = Email
-    extra = 1
-
 class ContactPersonInline(admin.TabularInline):
     model = ContactPerson
     extra = 1
-    readonly_fields = ('mobile_numbers', 'emails')
-    fields = ('name', 'mobile_numbers', 'emails')
-    
-    def mobile_numbers(self, obj):
-        return ", ".join([number.number for number in obj.contact_numbers.all()])
-
-    def emails(self, obj):
-        return ", ".join([email.email for email in obj.emails.all()])
-
-    mobile_numbers.short_description = 'Mobile Numbers'
-    emails.short_description = 'Emails'
     
 @admin.register(Country)
 class CountryAdmin(admin.ModelAdmin):
@@ -62,7 +43,6 @@ class VendorCategoryAdmin(admin.ModelAdmin):
 @admin.register(ContactPerson)
 class ContactPersonAdmin(admin.ModelAdmin):
     list_display = ('vendor', 'name')
-    inlines = [ContactNumberInline, EmailInline]
 
 @admin.register(Agent)
 class AgentAdmin(admin.ModelAdmin):
