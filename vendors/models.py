@@ -42,9 +42,9 @@ class VendorCategory(models.Model):
 class ContactPerson(models.Model):
     vendor = models.ForeignKey(Vendor, related_name='contact_persons', on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
-    mobilenumber = models.CharField(max_length=20)
-    telnumber = models.CharField(max_length=20)
-    email = models.EmailField()
+    mobilenumber = models.CharField(max_length=20, blank=True, null=True)
+    telnumber = models.CharField(max_length=20, blank=True, null=True)
+    email = models.EmailField(blank=True, null=True)
     
     def __str__(self):
         return self.name
