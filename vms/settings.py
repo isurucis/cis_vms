@@ -55,7 +55,7 @@ ROOT_URLCONF = 'vms.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': BASE_DIR / 'vendors/templates',
+        'DIRS': [BASE_DIR / 'vendors' / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
