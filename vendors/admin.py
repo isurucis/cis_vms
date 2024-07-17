@@ -21,8 +21,8 @@ class NoteInline(admin.TabularInline):
     model = Note
     extra = 1
 
-class CategoryInline(admin.TabularInline):
-    model = Category
+class VendorCategoryInline(admin.TabularInline):
+    model = VendorCategory
     extra = 1
     
 @admin.register(Country)
@@ -35,7 +35,7 @@ class VendorAdmin(admin.ModelAdmin):
     list_filter = ('status', 'country')
     search_fields = ('name', 'code')
                      
-    inlines = [CategoryInline, ContactPersonInline, AddressInline, NoteInline, TaskInline]  
+    inlines = [VendorCategory, ContactPersonInline, AddressInline, NoteInline, TaskInline]  
 
 
 @admin.register(Address)
