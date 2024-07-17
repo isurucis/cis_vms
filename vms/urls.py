@@ -20,4 +20,5 @@ from vendors import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path ('', views.homepage, ),
+    path('activation-process-status/', views.activation_process_status, name='activation_process_status'),
 ]
