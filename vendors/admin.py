@@ -9,12 +9,6 @@ from .models import (
 class CountryAdmin(admin.ModelAdmin):
     list_display = ('name',)
 
-@admin.register(Vendor)
-class VendorAdmin(admin.ModelAdmin):
-    list_display = ('name', 'code', 'website', 'country', 'status')
-    list_filter = ('status', 'country')
-    search_fields = ('name', 'code')
-
 @admin.register(Address)
 class AddressAdmin(admin.ModelAdmin):
     list_display = ('vendor', 'address_line', 'city', 'state', 'postal_code')
@@ -42,6 +36,14 @@ class ContactPersonAdmin(admin.ModelAdmin):
     list_display = ('vendor', 'name')
     inlines = [ContactNumberInline, EmailInline]
 
+@admin.register(Vendor)
+class VendorAdmin(admin.ModelAdmin):
+    list_display = ('name', 'code', 'website', 'country', 'status')
+    list_filter = ('status', 'country')
+    search_fields = ('name', 'code')
+
+    inlines = [ContactPerson, Address]
+    
 @admin.register(Agent)
 class AgentAdmin(admin.ModelAdmin):
     list_display = ('name',)
