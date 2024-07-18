@@ -21,7 +21,7 @@ class Vendor(models.Model):
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
 
     def __str__(self):
-        return self.code.' - '.self.name
+        return f'{self.code} - {self.name}'
 
 class Address(models.Model):
     vendor = models.ForeignKey(Vendor, related_name='addresses', on_delete=models.CASCADE)
