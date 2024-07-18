@@ -17,7 +17,6 @@ class Vendor(models.Model):
     code = models.CharField(max_length=100, unique=True)
     website = models.URLField(blank=True, null=True)
     country = models.ForeignKey(Country, on_delete=models.CASCADE)
-    categories = models.ManyToManyField(Category, through='VendorCategory')
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
 
     def __str__(self):
