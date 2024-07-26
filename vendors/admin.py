@@ -32,7 +32,7 @@ class VendorAdmin(admin.ModelAdmin):
     list_filter = ('status', 'country')
     search_fields = ('name', 'code')
                      
-    inlines = [VendorCategory, ContactPersonInline, AddressInline, NoteInline, TaskInline]  
+    inlines = [ContactPersonInline, AddressInline, NoteInline, TaskInline]  
 
 
 @admin.register(Address)
