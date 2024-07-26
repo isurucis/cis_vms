@@ -21,9 +21,6 @@ class NoteInline(admin.TabularInline):
     model = Note
     extra = 1
 
-class VendorCategoryInline(admin.TabularInline):
-    model = VendorCategory
-    extra = 1
     
 @admin.register(Country)
 class CountryAdmin(admin.ModelAdmin):
