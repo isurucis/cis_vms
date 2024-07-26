@@ -21,7 +21,14 @@ class NoteInline(admin.TabularInline):
     model = Note
     extra = 1
 
-    
+class VendorCategoryInline(admin.TabularInline):
+    model = VendorCategory
+    extra = 1
+
+    def has_view_or_change_permission(self, request, obj=None):
+        # Return True or implement custom logic to determine view/change permission
+        return True
+        
 @admin.register(Country)
 class CountryAdmin(admin.ModelAdmin):
     list_display = ('name',)
@@ -32,7 +39,7 @@ class VendorAdmin(admin.ModelAdmin):
     list_filter = ('status', 'country')
     search_fields = ('name', 'code')
                      
-    inlines = [ContactPersonInline, AddressInline, NoteInline, TaskInline]  
+    inlines = [VendorCategoryInline, ContactPersonInline, AddressInline, NoteInline, TaskInline]  
 
 
 @admin.register(Address)
